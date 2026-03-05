@@ -25,7 +25,8 @@ const euData = {
 "Malta":2004,
 "Bulgaria":2007,
 "Romania":2007,
-"Croatia":2013
+"Croatia":2013,
+"United Kingdom":1973
 };
 const euFacts = {
 
@@ -62,14 +63,14 @@ const euFacts = {
 "Bulgaria":"Joined during the 2007 enlargement.",
 "Romania":"Joined together with Bulgaria in 2007.",
 
-"Croatia":"First Western Balkan country to join the EU in 2013."
+"Croatia":"First Western Balkan country to join the EU in 2013.",
+"United Kingdom":"Joined the European Communities in 1973 and left the EU in 2020 after Brexit."
 
 };
 
 let discoveredCountries = [];
 
 function getColor(year){
-
 if(year==1957) return "#0B3D91";
 if(year==1973) return "green";
 if(year==1981) return "yellow";
@@ -78,7 +79,6 @@ if(year==1995) return "purple";
 if(year==2004) return "red";
 if(year==2007) return "pink";
 if(year==2013) return "brown";
-
 return "gray";
 
 }
@@ -172,7 +172,32 @@ flag + " " + country + " — " + year + "<br>" +
 container.appendChild(entry);
 
 });
+function revealAll(){
 
+for (let country in euData){
+
+geoLayer.eachLayer(function(layer){
+
+if(layer.feature.properties.NAME===country){
+
+layer.setStyle({
+fillColor:getColor(euData[country]),
+fillOpacity:0.9
+});
+
+}
+
+});
+
+if(!discoveredCountries.includes(country)){
+discoveredCountries.push(country);
+}
+
+}
+
+updateTimeline();
+
+}
 }
 function getFlagEmoji(country){
 
@@ -203,7 +228,8 @@ const flags={
 "Malta":"🇲🇹",
 "Bulgaria":"🇧🇬",
 "Romania":"🇷🇴",
-"Croatia":"🇭🇷"
+"Croatia":"🇭🇷",
+"United Kingdom":"🇬🇧"
 };
 
 return flags[country] || "";
