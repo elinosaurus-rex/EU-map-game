@@ -172,6 +172,7 @@ flag + " " + country + " — " + year + "<br>" +
 container.appendChild(entry);
 
 });
+}
 function revealAll(){
 
 for (let country in euData){
@@ -198,7 +199,7 @@ discoveredCountries.push(country);
 updateTimeline();
 
 }
-}
+
 function getFlagEmoji(country){
 
 const flags={
