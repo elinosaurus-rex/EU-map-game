@@ -1,0 +1,32 @@
+body{
+font-family:Arial;
+text-align:center;
+background-color:#003399;
+color:white;
+}
+
+#map{
+height:600px;
+width:80%;
+margin:auto;
+border:3px solid white;
+}
+
+#controls{
+margin:20px;
+}
+
+#timeline{
+width:80%;
+margin:20px auto;
+background:white;
+color:black;
+padding:15px;
+border-radius:8px;
+text-align:left;
+}
+
+.timeline-entry{
+padding:6px;
+border-bottom:1px solid #ccc;
+}
